@@ -1,0 +1,48 @@
+$gutter_width: 1%;
+
+/*
+grid($nb_columns): reçoit en paramètre le nombre de colones qu'aura la grille
+*/
+
+@mixin grid($nb_columns) {
+    display: grid;
+    grid-template-columns: repeat($nb_columns, 1fr);
+    grid-gap: $gutter_width;
+    padding-left: $gutter_width;
+    padding-right: $gutter_width;
+}
+
+
+/*
+*Les propriétés des éléments des différentes grille prennent un $length(nombre de colones au sein de la grille), un $offset(un margin left, et un $order(l'ordre de l'élément au sein de la grille)
+*/
+
+@mixin elementEl($length, $order) {
+    //La grille des éléments en extra large
+    grid-column: span $length;
+    order: $order;
+}
+
+@mixin elementL($length, $order) {
+    //La grille des éléments en large
+    grid-column: span $length;
+    order: $order;
+}
+
+@mixin elementM($length, $order) {
+    //La grille des éléments en medium
+    grid-column: span $length;
+    order: $order;
+}
+
+@mixin elementS($length, $order) {
+    //La grille des éléments en small
+    grid-column: span $length;
+    order: $order;
+}
+
+@mixin elementXs($length, $order) {
+    //La grille des éléments en extra small
+    grid-column: span $length;
+    order: $order;
+}
