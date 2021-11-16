@@ -1,4 +1,18 @@
 @import '_Grid';
+
+/*
+Breakpoints:
+*/
+
+$el_min_screen_width: 80em;
+$l_min_screen_width: 60em;
+$m_min_screen_width: 39em;
+$s_min_screen_width: 30em;
+
+/*
+*
+*/
+
 body {
     margin: 0;
     border: 0;
@@ -7,15 +21,6 @@ body {
 body>header {
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
     margin-right: 1em;
-    p {
-        font-size: 1em;
-        color: lighten(black, 30%);
-        padding-bottom: 1em;
-    }
-}
-
-//barre de navigation du header
-body>header>nav {
     section {
         display: flex;
         align-items: center;
@@ -41,12 +46,228 @@ body>header>nav {
             }
         }
     }
-    // height: 160px;
+    p {
+        font-size: 1em;
+        color: lighten(black, 30%);
+        padding-bottom: 1em;
+    }
     padding-left: 20px;
 }
 
-//Les rotations et grille du menu du main
 body>main {
+    /*
+    ECRAN EXTRA SMALL (par défaut)
+    */
+    @include grid(2);
+    nav {
+        @include elementXs(1, 0);
+    }
+    article:nth-child(2) {
+        @include elementXs(2, 1);
+    }
+    article:nth-child(3) {
+        @include elementXs(2, 2);
+    }
+    article:nth-child(4) {
+        @include elementXs(1, 4);
+    }
+    article:nth-child(5) {
+        @include elementXs(2, 3);
+    }
+    article:nth-child(6) {
+        @include elementXs(1, 5);
+    }
+    article:nth-child(7) {
+        @include elementXs(1, 6);
+    }
+    article:nth-child(8) {
+        @include elementXs(2, 7);
+    }
+    article:nth-child(9) {
+        @include elementXs(2, 8);
+    }
+    article:nth-child(10) {
+        @include elementXs(2, 9);
+    }
+    article:nth-child(11) {
+        @include elementXs(2, 10);
+    }
+    footer {
+        grid-row-end: 12;
+        grid-column: 2;
+    }
+    /*
+    *  PETITS ECRANS 
+    */
+    @media only screen and (min-width: $s_min_screen_width) {
+        @include grid(3); //Grille de 3 parts égales
+        nav:first-child {
+            @include elementS(1, 0);
+        }
+        article:nth-child(2) {
+            @include elementS(2, 0);
+        }
+        article:nth-child(3) {
+            @include elementS(2, 0);
+        }
+        article:nth-child(4) {
+            @include elementS(1, 0);
+        }
+        article:nth-child(5) {
+            @include elementS(2, 0);
+        }
+        article:nth-child(6) {
+            @include elementS(1, 0);
+        }
+        article:nth-child(7) {
+            @include elementS(1, 0);
+        }
+        article:nth-child(8) {
+            @include elementS(2, 0);
+        }
+        article:nth-child(9) {
+            @include elementS(2, 0);
+        }
+        article:nth-child(10) {
+            @include elementS(2, 0);
+        }
+        article:nth-child(11) {
+            @include elementS(2, 0);
+        }
+        footer {
+            grid-row-end: 9;
+            grid-column: 3;
+        }
+    }
+    /*
+    MOYEN ECRANS 
+    */
+    @media only screen and (min-width: $m_min_screen_width) {
+        @include grid(4); //Grille de 4 parts égales
+        nav:first-child {
+            @include elementM(1, 0);
+        }
+        article:nth-child(2) {
+            @include elementM(2, 1);
+        }
+        article:nth-child(3) {
+            @include elementM(2, 3);
+        }
+        article:nth-child(4) {
+            @include elementM(1, 2);
+        }
+        article:nth-child(5) {
+            @include elementM(2, 4);
+        }
+        article:nth-child(6) {
+            @include elementM(1, 5);
+        }
+        article:nth-child(7) {
+            @include elementM(1, 6);
+        }
+        article:nth-child(8) {
+            @include elementM(2, 7);
+        }
+        article:nth-child(9) {
+            @include elementM(2, 8);
+        }
+        article:nth-child(10) {
+            @include elementM(2, 9);
+        }
+        article:nth-child(11) {
+            @include elementM(2, 10);
+        }
+        footer {
+            grid-row-end: 7;
+            grid-column: 3 / span 1;
+        }
+    }
+    /*
+    GRANDS ECRANS
+    */
+    @media only screen and (min-width: $l_min_screen_width) {
+        @include grid(5); //Grille de 5 parts égales
+        nav {
+            @include elementL(1, 0);
+        }
+        article:nth-child(2) {
+            @include elementL(2, 1);
+        }
+        article:nth-child(3) {
+            @include elementL(2, 2);
+        }
+        article:nth-child(4) {
+            @include elementL(1, 4);
+        }
+        article:nth-child(5) {
+            @include elementL(2, 3);
+        }
+        article:nth-child(6) {
+            @include elementL(1, 5);
+        }
+        article:nth-child(7) {
+            @include elementL(1, 6);
+        }
+        article:nth-child(8) {
+            @include elementL(2, 7);
+        }
+        article:nth-child(9) {
+            @include elementL(2, 8);
+        }
+        article:nth-child(10) {
+            @include elementL(2, 9);
+        }
+        article:nth-child(11) {
+            @include elementL(2, 10);
+        }
+        footer {
+            grid-row-end: 6;
+            grid-column: 4 / span 1;
+        }
+    }
+    /*
+    EXTRA LARGE ECRANS
+    */
+    @media only screen and (min-width: $el_min_screen_width) {
+        @include grid(6); //Grille de 6 parts égales
+        nav:first-child {
+            @include elementEl(1, 0);
+        }
+        article:nth-child(2) {
+            @include elementEl(2, 0);
+        }
+        article:nth-child(3) {
+            @include elementEl(2, 0);
+        }
+        article:nth-child(4) {
+            @include elementEl(1, 0);
+        }
+        article:nth-child(5) {
+            @include elementEl(2, 0);
+        }
+        article:nth-child(6) {
+            @include elementEl(1, 0);
+        }
+        article:nth-child(7) {
+            @include elementEl(1, 0);
+        }
+        article:nth-child(8) {
+            @include elementEl(2, 0);
+        }
+        article:nth-child(9) {
+            @include elementEl(2, 0);
+        }
+        article:nth-child(10) {
+            @include elementEl(2, 0);
+        }
+        article:nth-child(11) {
+            @include elementEl(2, 0);
+        }
+        footer {
+            grid-row-end: 5;
+            grid-column: 5 / span 1;
+        }
+    }
     nav {
         color: #F45709;
         img {
@@ -88,224 +309,6 @@ body>main {
     }
     article:nth-child(11) {
         transform: rotate(0.5deg);
-    }
-}
-
-body>main {
-    /*
-    ECRAN EXTRA SMALL (par défaut)
-    */
-    @include grid(2);
-    nav:first-child {
-        @include elementXs(1, 0);
-    }
-    article:nth-child(2) {
-        @include elementXs(2, 1);
-    }
-    article:nth-child(3) {
-        @include elementXs(2, 2);
-    }
-    article:nth-child(4) {
-        @include elementXs(1, 4);
-    }
-    article:nth-child(5) {
-        @include elementXs(2, 3);
-    }
-    article:nth-child(6) {
-        @include elementXs(1, 5);
-    }
-    article:nth-child(7) {
-        @include elementXs(1, 6);
-    }
-    article:nth-child(8) {
-        @include elementXs(2, 7);
-    }
-    article:nth-child(9) {
-        @include elementXs(2, 8);
-    }
-    article:nth-child(10) {
-        @include elementXs(2, 9);
-    }
-    article:nth-child(11) {
-        @include elementXs(2, 10);
-    }
-    footer {
-        background-color: red;
-        grid-column: 2/span 1;
-        grid-row-end: 12;
-    }
-    /*
-    *  PETITS ECRANS 
-    */
-    @media only screen and (min-width: 30em) and (max-width: 40em) {
-        @include grid(3); //Grille de 3 parts égales
-        nav:first-child {
-            @include elementS(1, 0);
-        }
-        article:nth-child(2) {
-            @include elementS(2, 0);
-        }
-        article:nth-child(3) {
-            @include elementS(2, 0);
-        }
-        article:nth-child(4) {
-            @include elementS(1, 0);
-        }
-        article:nth-child(5) {
-            @include elementS(2, 0);
-        }
-        article:nth-child(6) {
-            @include elementS(1, 0);
-        }
-        article:nth-child(7) {
-            @include elementS(1, 0);
-        }
-        article:nth-child(8) {
-            @include elementS(2, 0);
-        }
-        article:nth-child(9) {
-            @include elementS(2, 0);
-        }
-        article:nth-child(10) {
-            @include elementS(2, 0);
-        }
-        article:nth-child(11) {
-            @include elementS(2, 0);
-        }
-        footer {
-            background-color: red;
-            grid-column: 2/span 1;
-        }
-    }
-    /*
-    MOYEN ECRANS 
-    */
-    @media only screen and (min-width: 39em) and (max-width: 59em) {
-        @include grid(4); //Grille de 4 parts égales
-        nav:first-child {
-            @include elementM(1, 0);
-        }
-        article:nth-child(2) {
-            @include elementM(2, 1);
-        }
-        article:nth-child(3) {
-            @include elementM(2, 3);
-        }
-        article:nth-child(4) {
-            @include elementM(1, 2);
-        }
-        article:nth-child(5) {
-            @include elementM(2, 4);
-        }
-        article:nth-child(6) {
-            @include elementM(1, 5);
-        }
-        article:nth-child(7) {
-            @include elementM(1, 6);
-        }
-        article:nth-child(8) {
-            @include elementM(2, 7);
-        }
-        article:nth-child(9) {
-            @include elementM(2, 8);
-        }
-        article:nth-child(10) {
-            @include elementM(2, 9);
-        }
-        article:nth-child(11) {
-            @include elementM(2, 10);
-        }
-        footer {
-            background-color: red;
-            grid-column: 3/span 1;
-        }
-    }
-    /*
-    GRANDS ECRANS
-    */
-    @media only screen and (min-width: 60em) and (max-width: 79em) {
-        @include grid(5); //Grille de 5 parts égales
-        nav {
-            @include elementL(1, 0);
-        }
-        article:nth-child(2) {
-            @include elementL(2, 1);
-        }
-        article:nth-child(3) {
-            @include elementL(2, 2);
-        }
-        article:nth-child(4) {
-            @include elementL(1, 4);
-        }
-        article:nth-child(5) {
-            @include elementL(2, 3);
-        }
-        article:nth-child(6) {
-            @include elementL(1, 5);
-        }
-        article:nth-child(7) {
-            @include elementL(1, 6);
-        }
-        article:nth-child(8) {
-            @include elementL(2, 7);
-        }
-        article:nth-child(9) {
-            @include elementL(2, 8);
-        }
-        article:nth-child(10) {
-            @include elementL(2, 9);
-        }
-        article:nth-child(11) {
-            @include elementL(2, 10);
-        }
-        footer {
-            background-color: red;
-            grid-column: 4/span 1;
-        }
-    }
-    /*
-    EXTRA LARGE ECRANS
-    */
-    @media only screen and (min-width: 80em) {
-        @include grid(6); //Grille de 6 parts égales
-        nav:first-child {
-            @include elementEl(1, 0);
-        }
-        article:nth-child(2) {
-            @include elementEl(2, 0);
-        }
-        article:nth-child(3) {
-            @include elementEl(2, 0);
-        }
-        article:nth-child(4) {
-            @include elementEl(1, 0);
-        }
-        article:nth-child(5) {
-            @include elementEl(2, 0);
-        }
-        article:nth-child(6) {
-            @include elementEl(1, 0);
-        }
-        article:nth-child(7) {
-            @include elementEl(1, 0);
-        }
-        article:nth-child(8) {
-            @include elementEl(2, 0);
-        }
-        article:nth-child(9) {
-            @include elementEl(2, 0);
-        }
-        article:nth-child(10) {
-            @include elementEl(2, 0);
-        }
-        article:nth-child(11) {
-            @include elementEl(2, 0);
-        }
-        footer {
-            background-color: red;
-            grid-column: 5/span 1;
-            grid-row-end: 7;
-        }
     }
 }
 

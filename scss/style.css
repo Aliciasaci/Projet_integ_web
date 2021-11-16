@@ -5,6 +5,12 @@ grid($nb_columns): reçoit en paramètre le nombre de colones qu'aura la grille
 /*
 *Les propriétés des éléments des différentes grille prennent un $length(nombre de colones au sein de la grille), un $offset(un margin left, et un $order(l'ordre de l'élément au sein de la grille)
 */
+/*
+Breakpoints:
+*/
+/*
+*
+*/
 body {
   margin: 0;
   border: 0;
@@ -13,84 +19,38 @@ body {
 body > header {
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
   margin-right: 1em;
-}
-body > header p {
-  font-size: 1em;
-  color: #4d4d4d;
-  padding-bottom: 1em;
-}
-
-body > header > nav {
   padding-left: 20px;
 }
-body > header > nav section {
+body > header section {
   display: flex;
   align-items: center;
   justify-content: space-between;
   -moz-column-gap: 20px;
        column-gap: 20px;
 }
-body > header > nav section h1 {
+body > header section h1 {
   font-size: 2em;
 }
-body > header > nav section div:first-child {
+body > header section div:first-child {
   display: flex;
   align-items: center;
 }
-body > header > nav section div:first-child #img_logo {
+body > header section div:first-child #img_logo {
   height: 60px;
   width: 60px;
 }
-body > header > nav section div:last-child {
+body > header section div:last-child {
   display: flex;
   justify-content: flex-end;
 }
-body > header > nav section div:last-child .img_icone {
+body > header section div:last-child .img_icone {
   width: 30px;
   height: 30px;
 }
-
-body > main nav {
-  color: #F45709;
-  padding: 10px;
-}
-body > main nav img {
-  width: 100%;
-}
-body > main nav ul {
-  list-style: none;
-  display: grid;
-  grid-template-rows: repeat(13, 1.7em);
-}
-body > main article:nth-child(2) {
-  transform: rotate(-1deg);
-}
-body > main article:nth-child(3) {
-  transform: rotate(0.5deg);
-}
-body > main article:nth-child(4) {
-  transform: rotate(0.8deg);
-}
-body > main article:nth-child(5) {
-  transform: rotate(-1deg);
-}
-body > main article:nth-child(6) {
-  transform: rotate(-0.8deg);
-}
-body > main article:nth-child(7) {
-  transform: rotate(1deg);
-}
-body > main article:nth-child(8) {
-  transform: rotate(-1deg);
-}
-body > main article:nth-child(9) {
-  transform: rotate(0.8deg);
-}
-body > main article:nth-child(10) {
-  transform: rotate(-0.8deg);
-}
-body > main article:nth-child(11) {
-  transform: rotate(0.5deg);
+body > header p {
+  font-size: 1em;
+  color: #4d4d4d;
+  padding-bottom: 1em;
 }
 
 body > main {
@@ -115,7 +75,7 @@ body > main {
   EXTRA LARGE ECRANS
   */
 }
-body > main nav:first-child {
+body > main nav {
   grid-column: span 1;
   order: 0;
 }
@@ -160,11 +120,10 @@ body > main article:nth-child(11) {
   order: 10;
 }
 body > main footer {
-  background-color: red;
-  grid-column: 2/span 1;
   grid-row-end: 12;
+  grid-column: 2;
 }
-@media only screen and (min-width: 30em) and (max-width: 40em) {
+@media only screen and (min-width: 30em) {
   body > main {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -217,11 +176,11 @@ body > main footer {
     order: 0;
   }
   body > main footer {
-    background-color: red;
-    grid-column: 2/span 1;
+    grid-row-end: 9;
+    grid-column: 3;
   }
 }
-@media only screen and (min-width: 39em) and (max-width: 59em) {
+@media only screen and (min-width: 39em) {
   body > main {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -274,11 +233,11 @@ body > main footer {
     order: 10;
   }
   body > main footer {
-    background-color: red;
+    grid-row-end: 7;
     grid-column: 3/span 1;
   }
 }
-@media only screen and (min-width: 60em) and (max-width: 79em) {
+@media only screen and (min-width: 60em) {
   body > main {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -331,7 +290,7 @@ body > main footer {
     order: 10;
   }
   body > main footer {
-    background-color: red;
+    grid-row-end: 6;
     grid-column: 4/span 1;
   }
 }
@@ -388,10 +347,51 @@ body > main footer {
     order: 0;
   }
   body > main footer {
-    background-color: red;
+    grid-row-end: 5;
     grid-column: 5/span 1;
-    grid-row-end: 7;
   }
+}
+body > main nav {
+  color: #F45709;
+  padding: 10px;
+}
+body > main nav img {
+  width: 100%;
+}
+body > main nav ul {
+  list-style: none;
+  display: grid;
+  grid-template-rows: repeat(13, 1.7em);
+}
+body > main article:nth-child(2) {
+  transform: rotate(-1deg);
+}
+body > main article:nth-child(3) {
+  transform: rotate(0.5deg);
+}
+body > main article:nth-child(4) {
+  transform: rotate(0.8deg);
+}
+body > main article:nth-child(5) {
+  transform: rotate(-1deg);
+}
+body > main article:nth-child(6) {
+  transform: rotate(-0.8deg);
+}
+body > main article:nth-child(7) {
+  transform: rotate(1deg);
+}
+body > main article:nth-child(8) {
+  transform: rotate(-1deg);
+}
+body > main article:nth-child(9) {
+  transform: rotate(0.8deg);
+}
+body > main article:nth-child(10) {
+  transform: rotate(-0.8deg);
+}
+body > main article:nth-child(11) {
+  transform: rotate(0.5deg);
 }
 
 article {
