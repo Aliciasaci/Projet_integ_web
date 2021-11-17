@@ -1,9 +1,0 @@
-@font-face {
-    font-family: 'Fuse';
-    src: local('Fuse Ultra Black'), local('Fuse-Ultra-Black'),
-        url('Fuse-UltraBlack.woff2') format('woff2'),
-        url('Fuse-UltraBlack.woff') format('woff'),
-        url('Fuse-UltraBlack.ttf') format('truetype');
-    font-weight: 900;
-    font-style: normal;
-  }
